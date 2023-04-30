@@ -1,0 +1,11 @@
+venv/
+pycache/
+db.sqlite3
+.vscode/
+.DS_Store
+.coverage
+.pytest_cache/
+staticfiles/
+.env
+logs/
+log/
