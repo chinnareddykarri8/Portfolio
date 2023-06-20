@@ -747,26 +747,26 @@
                     <h1 class="display-5 mb-0">Let's Work <i class="fa-regular fa-handshake fa-flip " style="color:  #FFC72C;"></i> Together</h1>
                 </div>
                 <div class="col-lg-6 text-lg-end">
-                    <a class="btn btn-primary py-3 px-5" href="https://www.linkedin.com/in/chinnareddykarri/">Say Hello <i class="fa-regular fa-hand fa-shake" style="color:  #FFC72C;"></i></a>
+                    <a class="btn btn-primary py-3 px-5" href="https://www.linkedin.com/in/chinnareddykarri/">Say Hello <i class="fa-regular fa-hand fa-shake fa-xl" style="color:  #FFC72C;"></i></a>
                 </div>
             </div>
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="mb-2"><i class="fa-solid fa-location-dot fa-bounce" style="color:  #FFC72C;"></i> My address:</p>
+                    <p class="mb-2"><i class="fa-solid fa-location-dot fa-bounce fa-lg" style="color:  #FFC72C;"></i> My address:</p>
                     <h3 class="fw-bold">1718 S Jentilly Ln, Tempe, Arizona, USA</h3>
                     <hr class="w-100">
-                    <p class="mb-2"><i class="fa-solid fa-phone-volume fa-beat" style="color:  #FFC72C;"></i> Call me:</p>
+                    <p class="mb-2"><i class="fa-solid fa-phone-volume fa-beat fa-lg" style="color:  #FFC72C;"></i> Call me:</p>
                     <h3 class="fw-bold">+1 (602)-554 5409</h3>
                     <hr class="w-100">
-                    <p class="mb-2"><i class="fa-solid fa-envelope fa-fade" style="color:  #FFC72C;"></i> Mail me:</p>
+                    <p class="mb-2"><i class="fa-solid fa-envelope fa-fade fa-lg" style="color:  #FFC72C;"></i> Mail me:</p>
                     <h3 class="fw-bold">ckarri2@asu.edu</h3>
                     <h3 class="fw-bold">chinnareddykarri8@gmail.com</h3>
                     <hr class="w-100">
                     <p class="mb-2">Follow me:</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-primary me-2" href="https://github.com/chinnareddykarri8"><i class="fa-brands fa-github fa-beat-fade"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href="https://www.instagram.com/chinna._.reddy/"><i class="fa-brands fa-instagram fa-beat-fade"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href="https://www.linkedin.com/in/chinnareddykarri/"><i class="fa-brands fa-linkedin fa-beat-fade"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://github.com/chinnareddykarri8"><i class="fa-brands fa-github fa-beat-fade fa-xl"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://www.instagram.com/chinna._.reddy/"><i class="fa-brands fa-instagram fa-beat-fade fa-xl"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://www.linkedin.com/in/chinnareddykarri/"><i class="fa-brands fa-linkedin fa-beat-fade fa-xl"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -798,7 +798,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit"><i class="fa-regular fa-message fa-flip" style="color:  #FFC72C;"></i> Send Message </button>
+                                <button class="btn btn-primary py-3 px-5" type="submit"><i class="fa-solid fa-paper-plane fa-bounce fa-xl"  style="color:  #FFC72C;"></i>  Send Message </button>
                             </div>
                         </div>
                     </form>
@@ -823,7 +823,7 @@
     <!-- Map End -->
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square-mn back-to-top"><i class="fa-solid fa-up-long fa-beat-fade" style="color: #ffc72c;"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square-mn back-to-top"><i class="fa-solid fa-up-long fa-beat-fade fs-2xl" style="color: #ffc72c;"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -838,12 +838,37 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
+<!-- Template Javascript -->
     <script src="js/main.js"></script>
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-       function sendEmail(){
+    function sendEmail(){
+        // Validate Name
+        var name = document.getElementById("name").value;
+        if (name === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        // Validate Email
+        var email = document.getElementById("email").value;
+        if (email === "") {
+            alert("Please enter your email.");
+            return;
+        }
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Validate Message
+        var message = document.getElementById("message").value;
+        if (message === "") {
+            alert("Please enter your message.");
+            return;
+        }
+
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "chinnareddy88888@gmail.com",
@@ -852,15 +877,21 @@
             From : "chinnareddy88888@gmail.com",
             // From : document.getElementById("email").value,
             Subject : "New Portfolio Contact Form Enquiry",
-            Body : "Name: " + document.getElementById("name").value
-                + "<br> Email: " + document.getElementById("email").value
+            Body : "Name: " + name
+                + "<br> Email: " + email
                 + "<br> Subject: " + document.getElementById("subject").value
-                + "<br> Message: " + document.getElementById("message").value
+                + "<br> Message: " + message
         }).then(
-        message => alert("Message Sent, Have a Great Day!!!")
+            message => alert("Message Sent, Have a Great Day!!!")
         );
-       } 
+    }
+
+    // Email Validation Function
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
     </script>
+
 </body>
-<!-- +++ Preethi Sharma +++ -->
 </html>
