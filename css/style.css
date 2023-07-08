@@ -452,6 +452,26 @@
     word-spacing: 100vw;
   }
 
+  #container {
+    position: bottom;
+    margin: left;
+    width: 10vw;
+    height: 8pt;
+    top: 0;
+    bottom: 0;
+
+    filter: url(#threshold) blur(0px);
+    }
+
+    #text1,
+    #text2 {
+        position: absolute;
+        width: 100%;
+        color: #8C1D40;
+        text-align: left;
+        user-select: none;
+    }
+
 /*** Team ***/
 .team-item img {
     transition: .5s;
